@@ -24,4 +24,14 @@ Then you can run your tests,
 
 ##Usage
 
-TODO
+```python
+from vt import VT
+
+api = VT("some_api_key")
+
+# Search for samples
+samples = api.search("behaviour:8.8.8.8")
+
+# Get a report for a resource
+report  = api.report("deadbeef212393281918")
+```
