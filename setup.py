@@ -8,5 +8,5 @@ setup(
   author="Hannah Ward",
   author_email="hannah.ward9001@gmail.com",
   packages = find_packages(),
-  install_requires = ["requests>=2.9.1"],
+  install_requires = ["nose", "requests"],
 )

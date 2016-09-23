@@ -16,6 +16,7 @@ class VT:
     def __init__(self, apikey):
         self.apikey = apikey
         self.searchURL = "https://www.virustotal.com/vtapi/v2/file/search"
+        self.reportURL = "https://www.virustotal.com/vtapi/v2/file/report"
 
         self.headers = {
                             "Accept-Encoding" : "gzip, deflate",
@@ -52,4 +53,18 @@ class VT:
         
         resp = requests.post(self.searchURL, data=params, headers=self.headers)
         self._check_response(resp)
-        return resp.json()        
+        return resp.json()      
+
+    def report(self, resource):
+        """
+            Get the report for a resource
+        """
+
+        params = {"apikey"   : self.apikey,
+                  "resource" : resource
+                 }  
+
+        resp = requests.get(self.reportURL, params=params, headers=self.headers)
+        self._check_response(resp)
+
+        return resp.json()
